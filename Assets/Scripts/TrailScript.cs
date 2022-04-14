@@ -2,7 +2,8 @@
 
 public class TrailScript : MonoBehaviour
 {
-    [SerializeField] private GameObject player = null, ghost = null;
+    [SerializeField]
+    private GameObject player = null, ghost = null;
 
     public void CallTrailing ()
     {
@@ -11,7 +12,7 @@ public class TrailScript : MonoBehaviour
 
     void Update ()
     {
-        // this has to go to the GameManager
+        // this has to go to the GameManager ????
         if (GameManager.instance.gameStatus == Modes.over)
             CancelInvoke ("StartTrailing");
     }

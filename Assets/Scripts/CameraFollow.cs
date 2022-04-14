@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     Vector3 offset;
     [SerializeField] float followRate = .25f; // rate by which camera follows the ball
 
-    void Start() { // you set this at the beginning
+    void Start() { // you set this at the beginning by eyeballing
         offset = player.transform.position - transform.position;
     }
 

@@ -40,8 +40,6 @@ public class BlockSpawner : MonoBehaviour
         nextPos.x += size * val;
         nextPos.z += size * (1 - val);
 
-        currentPos = nextPos;
-
         Instantiate(block, nextPos, Quaternion.identity);
 
         // add a pickup as well
@@ -50,5 +48,7 @@ public class BlockSpawner : MonoBehaviour
             Vector3 newDiamondPos = nextPos + new Vector3(0, 1.2f, 0);
             Instantiate(pickup, newDiamondPos, pickup.transform.rotation);
         }
+
+        currentPos = nextPos;
     }
 }

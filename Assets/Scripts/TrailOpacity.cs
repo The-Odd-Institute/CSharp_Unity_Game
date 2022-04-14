@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TrailOpacity : MonoBehaviour
 {
-       void Awake ()
+    void Awake ()
     {
         StartCoroutine("DropAlpha");
     }

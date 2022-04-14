@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // 02-Player
-    [SerializeField] private float moveSpeed = 5.0f;
+    [SerializeField]
+    private float moveSpeed = 5.0f;
 
-    // 02-Player // the ball's rigidbody
     Rigidbody rb;
 
-    // 02-Player // each time, player taps, this becomes true
+    // each time, player taps, this becomes true
     bool fire = false;
 
     // 02-Player
@@ -17,7 +16,6 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
     }
 
-    // 02-Player
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -30,8 +28,10 @@ public class PlayerController : MonoBehaviour
         }
         else if (GameManager.instance.gameStatus == Modes.running)
         {
-            if (!Physics.Raycast(gameObject.transform.position,
-                    Vector3.down, 10))
+            // if there's nothing beneath us
+            if (!Physics.Raycast(   gameObject.transform.position,
+                                    Vector3.down,
+                                    10))
             {
                 rb.velocity = new Vector3(0, -25.0f, 0);
                 GameManager.instance.EndGame();
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // let' smake the game harder
+        // let's make the game harder
         moveSpeed += .001f;
     }
 
